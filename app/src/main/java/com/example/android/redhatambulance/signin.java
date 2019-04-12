@@ -89,8 +89,10 @@ public class signin extends AppCompatActivity {
                 {
                     UserSingleton.get().setEmail(obj.getString("email"));
                     UserSingleton.get().setName(obj.getString("username"));
-                    Intent dashboard= new Intent(signin.this,dashboard.class);
-                    startActivity(dashboard);
+                    //start some intent
+                    Toast.makeText(signin.this, "Logged IN !!!!", Toast.LENGTH_SHORT).show();
+
+
                 }
 
                 else{
