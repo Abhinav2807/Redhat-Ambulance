@@ -72,7 +72,8 @@ public class signin extends AppCompatActivity {
         public void onOpen(WebSocket webSocket, Response response) {
 
         sendData();
-        webSocket.send(userLoginData.toString());
+        //webSocket.send(userLoginData.toString());
+            webSocket.send("random shit");
 
         }
 
@@ -80,7 +81,7 @@ public class signin extends AppCompatActivity {
         public void onMessage(WebSocket webSocket, String text){
 
             Log.i("Reply Info",text);
-            String reply="success";
+           /* String reply="success";
             JSONObject obj;
             try{
                 obj=new JSONObject(text);
@@ -104,8 +105,7 @@ public class signin extends AppCompatActivity {
             {
                 e.printStackTrace();
                 Log.d("ReplyInfo","catch", e);
-            }
-        }
+            }*/        }
 
         @Override
         public void onMessage(WebSocket webSocket, ByteString bytes) {
