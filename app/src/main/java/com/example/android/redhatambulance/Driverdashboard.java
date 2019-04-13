@@ -70,7 +70,7 @@ public class Driverdashboard extends AppCompatActivity {
                         latitude = obj.getString("latitude");
                         longitude=obj.getString("longitude");
                         Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                                Uri.parse("http://maps.google.com/maps?saddr=20.344,34.34&daddr="+latitude+","+longitude+""));
+                                Uri.parse("http://maps.google.com/maps?saddr=12.981944,77.69713&daddr="+latitude+","+longitude+""));
                         startActivity(intent);
 
 
