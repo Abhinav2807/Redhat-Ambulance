@@ -1,5 +1,5 @@
 package com.example.android.redhatambulance;
-
+//192.168.0.105
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import okhttp3.WebSocket;
 import okhttp3.WebSocketListener;
 import okio.ByteString;
 
-public class signin extends AppCompatActivity {
+public class UserSignin extends AppCompatActivity {
 
     public OkHttpClient client;
 
@@ -30,7 +30,7 @@ public class signin extends AppCompatActivity {
     String emailVal;
     String passVal;
 
-    JSONObject userLoginData;
+   // JSONObject userLoginData;
 
     Request request;
     WebSocket webSocket;
@@ -43,7 +43,7 @@ void login(){
     JSONObject obj=null;
     try{
         obj=new JSONObject();
-        obj.put("action", "signin");
+        obj.put("action", "requestSignin");
         obj.put("email", emailVal);
         obj.put("password", passVal);
 
@@ -79,28 +79,23 @@ void login(){
 
                 switch (action){
                     case "signinResponse":
-                        Log.d("Reply Info","here");
-
+//                        Log.d("Reply Info","here");
                         if(obj.getString("status").equals("success")){
-                            Log.d("Reply Info","here2");
-
-                            UserSingleton.get().setEmail(obj.getString("name"));
+//                            Log.d("Reply Info","here2");
+                            UserSingleton.get().setEmail(obj.getString("email"));
 //                            UserSingleton.get().setName(obj.getString("details"));
-                            Log.d("Reply Info","here3");
-
-                            Toast.makeText(signin.this, "Logged IN !!!!", Toast.LENGTH_SHORT).show();
-                            Log.d("Reply Info","here4");
-
-                        } else{
-                            Toast.makeText(signin.this,"fail", Toast.LENGTH_SHORT).show();
+//                            Log.d("Reply Info","here3");
+                            Intent i= new Intent(UserSignin.this,dashboard.class);
+                            webSocket.close(NORMAL_CLOSURE_STATUS,"ghu");
+                            startActivity(i);
+//                            Log.d("Reply Info","here4");
 
                         }
 
                         break;
-                    case "someshoit":
-                        break;
+
                         default:
-                            Toast.makeText(signin.this,"unknown action", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(UserSignin.this,"unknown action", Toast.LENGTH_SHORT).show();
                             break;
 
 
@@ -166,7 +161,7 @@ void login(){
         client = new OkHttpClient();
 
         request = new Request.Builder().url("ws://express-man-server-rh.1d35.starter-us-east-1.openshiftapps.com/user").build();
-        signin.EchoWebSocketListener listener = new signin.EchoWebSocketListener();
+        UserSignin.EchoWebSocketListener listener = new UserSignin.EchoWebSocketListener();
         webSocket=client.newWebSocket(request,listener);
         client.dispatcher().executorService().shutdown();
 
@@ -174,7 +169,8 @@ void login(){
             @Override
             public void onClick(View v) {
                 login();
-//                Toast.makeText(signin.this, "Logging in", Toast.LENGTH_SHORT).show();
+
+//                Toast.makeText(UserSignin.this, "Logging in", Toast.LENGTH_SHORT).show();
             }
         });
     }

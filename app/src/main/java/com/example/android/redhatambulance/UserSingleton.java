@@ -1,5 +1,7 @@
 package com.example.android.redhatambulance;
 
+import okhttp3.WebSocket;
+
 public class UserSingleton {
 
     private static UserSingleton sUserSingleton;
@@ -17,7 +19,7 @@ public class UserSingleton {
     private String name;
     private String email;
     private String phone;
-
+    public WebSocket ws;
     public String getName() {
         return name;
     }

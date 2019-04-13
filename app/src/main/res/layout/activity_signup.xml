@@ -65,19 +65,19 @@
 
     <EditText
         android:id="@+id/editText6"
-        android:textColor="@color/colorPrimaryDark"
         android:layout_width="293dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:layout_marginBottom="220dp"
+        android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Phone"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintBottom_toTopOf="@+id/button4"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.964" />
+        app:layout_constraintVertical_bias="0.969" />
 
     <EditText
         android:id="@+id/editText7"
@@ -87,13 +87,13 @@
         android:layout_marginBottom="8dp"
         android:ems="10"
         android:hint="Address"
-        android:textColor="@color/colorPrimaryDark"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/imageView2"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.584" />
+        app:layout_constraintVertical_bias="0.592" />
 
     <Button
         android:id="@+id/button4"

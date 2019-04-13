@@ -9,7 +9,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void signin_activity(View view)
     {
-        Intent i = new Intent(this,signin.class);
+        Intent i = new Intent(this, UserSignin.class);
         startActivity(i);
     }
     public void signin_driver_activity(View view)
